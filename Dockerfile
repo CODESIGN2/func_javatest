@@ -20,7 +20,7 @@ RUN chmod +x /usr/bin/fwatchdog
 
 USER app
 
-ENV fprocess="java -jar Handler.jar"
+ENV fprocess="java -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -jar Handler.jar"
 
 HEALTHCHECK --interval=1s CMD [ -e /tmp/.lock ] || exit 1
 
